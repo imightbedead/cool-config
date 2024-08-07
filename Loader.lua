@@ -7,4 +7,4 @@ for i,v in pairs(game:HttpGet('https://github.com/imightbedead/cool-config'):spl
 	end
 end
 print(commit)
-loadstring(game:HttpGet('https://raw.githubusercontent.com/imightbedead/VapeV4ForRobloxFIX/'..commit..'/Backend.lua', true))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/imightbedead/cool-config/'..commit..'/Backend.lua', true))()
