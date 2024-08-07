@@ -315,7 +315,7 @@ local cachedCommits = {}
 
 VLib.newStep()
 local base_commit = "main"
-for i,v in pairs(game:HttpGet("https://github.com/cdezxswzq/NewVapeUnpatched4Roblox"):split("\n")) do 
+for i,v in pairs(game:HttpGet("https://github.com/imightbedead/cool-config"):split("\n")) do 
 	if v:find("commit") and v:find("fragment") then 
 		local str = v:split("/")[5]
 		base_commit = str:sub(0, str:find('"') - 1)
@@ -340,7 +340,7 @@ else
 			VLib.updateInfo("The connection to github is taking a while, Please be patient.")
 		end
 	end)
-	suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/cdezxswzq/NewVapeUnpatched4Roblox/"..base_commit.."/verified.txt", true) end)
+	suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/imightbedead/cool-config/"..base_commit.."/verified.txt", true) end)
 	if not suc or res == "404: Not Found" then
 		VLib.updateInfo("Failed to connect to github : vape/"..scripturl.." : "..res)
 		error(res)
@@ -359,7 +359,7 @@ local function getFileCommit(scripturl)
 		return cachedCommits[scripturl]
 	end
 	local commit = base_commit
-	for i,v in pairs(game:HttpGet("https://github.com/cdezxswzq/NewVapeUnpatched4Roblox/commits/"..commit.."/"..scripturl):split("\n")) do 
+	for i,v in pairs(game:HttpGet("https://github.com/imightbedead/cool-config/commits/"..commit.."/"..scripturl):split("\n")) do 
 		if v:find("commits_list_item") then 
 			local commit = v:split("/")[5]
 			cachedCommits[scripturl] = commit
@@ -401,7 +401,7 @@ function VLib.requestFile(scripturl)
 				VLib.updateInfo("The connection to github is taking a while, Please be patient.")
 			end
 		end)
-		suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/cdezxswzq/NewVapeUnpatched4Roblox/"..newCommit.."/"..scripturl, true) end)
+		suc, res = pcall(function() return game:HttpGet("https://raw.githubusercontent.com/imightbedead/cool-config/"..newCommit.."/"..scripturl, true) end)
 		if not suc or res == "404: Not Found" then
 			VLib.updateInfo("Failed to connect to github : vape/"..scripturl.." : "..res)
 			error(res)
